@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import QuizPlayer from "./components/QuizPlayer";
 import { Quiz } from "@/lib/types";
 import { generateQuiz } from "./api";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function QuizSection() {
   const [prompt, setPrompt] = useState("");
@@ -45,13 +45,13 @@ export default function QuizSection() {
           <>
             <div className="text-center space-y-2 mb-8">
               <h1 className="text-4xl font-bold drop-shadow-lg">QuizMe</h1>
-              <p className="text-lg text-gray-300">Create a quiz for me</p>
+              <p className="text-lg text-gray-300"><em>Create a quiz for me</em></p>
             </div>
             <div className="w-full max-w-xl space-y-4 backdrop-blur-lg bg-white/10 rounded-2xl shadow-xl p-6 border border-white/20">
-              <Input
+              <Textarea
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
-                placeholder="Describe your quiz here..."
+                placeholder="Deskripsikan kuis anda disini. Sertakan jumlah soal jika ingin lebih dari 5 soal..."
                 className="bg-white/20 border-none placeholder:text-gray-300 text-white focus:ring-2 focus:ring-purple-400"
               />
               <Button
@@ -59,7 +59,7 @@ export default function QuizSection() {
                 disabled={loading}
                 className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:opacity-90 transition"
               >
-                {loading ? "Generating..." : "Generate Quiz"}
+                {loading ? "Membuat..." : "Buat Kuis"}
               </Button>
             </div>
           </>

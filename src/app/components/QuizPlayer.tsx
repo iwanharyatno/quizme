@@ -63,10 +63,10 @@ export default function QuizPlayer({ questions, onRestart }: QuizPlayerProps) {
 
         return (
             <div className="p-6 rounded-3xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg text-center">
-                <h2 className="text-2xl font-bold mb-4">Quiz Finished!</h2>
+                <h2 className="text-2xl font-bold mb-4">Kuis Selesai!</h2>
                 <p className={`text-4xl font-extrabold ${color}`}>{percentage}%</p>
                 <p className="mt-2 text-gray-300 mb-6">
-                    You got {score} out of {questions.length} correct
+                    Kamu benar {score} dari {questions.length} soal
                 </p>
                 <div className="mt-4 flex gap-5 justify-center">
                     <button
@@ -89,11 +89,17 @@ export default function QuizPlayer({ questions, onRestart }: QuizPlayerProps) {
     return (
         <div className="p-6 bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-lg w-full max-w-xl mx-auto">
             {/* Progress bar */}
-            <div className="w-full bg-white/20 h-2 rounded-full mb-4">
-                <div
-                    className="h-2 rounded-full bg-green-400 transition-all"
-                    style={{ width: `${progress}%` }}
-                />
+            {/* Progress + Counter */}
+            <div className="flex items-center justify-between mb-2">
+                <div className="w-full bg-white/20 h-2 rounded-full mr-4">
+                    <div
+                        className="h-2 rounded-full bg-green-400 transition-all"
+                        style={{ width: `${progress}%` }}
+                    />
+                </div>
+                <span className="text-sm text-gray-200 font-medium whitespace-nowrap">
+                    {current + 1} / {total}
+                </span>
             </div>
 
             {/* Timer */}
