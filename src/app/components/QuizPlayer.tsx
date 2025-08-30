@@ -79,7 +79,7 @@ export default function QuizPlayer({ questions, onRestart }: QuizPlayerProps) {
                         onClick={() => handleRestart(true)}
                         className="mt-2 px-6 py-2 rounded-xl bg-amber-700/80 hover:bg-amber-800 text-white font-semibold transition"
                     >
-                        Hapus Kuis
+                        Buat Ulang
                     </button>
                 </div>
             </div>
