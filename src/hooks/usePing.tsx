@@ -7,9 +7,14 @@ export function usePing() {
             try {
                 const result = await fetcherPlain('/ping');
                 console.log(result)
-            } catch (e: any) {
-                console.log(e.message);
+            } catch (error: unknown) {
+                if (error instanceof Error) {
+                    console.error("Terjadi error:", error.message);
+                } else {
+                    console.error("Unexpected error:", error);
+                }
             }
         }
+        ping();
     })
 }
